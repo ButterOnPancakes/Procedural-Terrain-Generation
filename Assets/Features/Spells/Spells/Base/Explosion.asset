@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aeeb85fd6f180f498e773891313436a, type: 3}
+  m_Name: Explosion
+  m_EditorClassIdentifier: Assembly-CSharp::SpellDefinition
+  id: 
+  spellForm: 1
+  speed: 0
+  radius: 4
+  triggers:
+  - triggerOn: 0
+    arguments:
+      rid: 5179498324826783833
+    effects:
+    - effectType: 1
+      arguments:
+        rid: 5179498324826783815
+  - triggerOn: 3
+    arguments:
+      rid: 1002
+    effects:
+    - effectType: 2
+      arguments:
+        rid: 1003
+  references:
+    version: 2
+    RefIds:
+    - rid: 1002
+      type: {class: OnExpireTriggerArguments, ns: Assets.Features.Spells, asm: Assembly-CSharp}
+      data:
+        duration: 2
+    - rid: 1003
+      type: {class: SelfDestroyArguments, ns: Assets.Features.Spells, asm: Assembly-CSharp}
+      data: 
+    - rid: 5179498324826783815
+      type: {class: RadialImpulseArguments, ns: Assets.Features.Spells, asm: Assembly-CSharp}
+      data:
+        force: 400
+        radius: 4
+        upwardsModifier: 0.5
+        affectedLayers:
+          serializedVersion: 2
+          m_Bits: 127
+    - rid: 5179498324826783833
+      type: {class: OnSpawnTriggerArguments, ns: Assets.Features.Spells, asm: Assembly-CSharp}
+      data: 

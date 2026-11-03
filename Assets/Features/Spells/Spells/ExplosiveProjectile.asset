@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aeeb85fd6f180f498e773891313436a, type: 3}
+  m_Name: ExplosiveProjectile
+  m_EditorClassIdentifier: Assembly-CSharp::SpellDefinition
+  id: 
+  spellForm: 0
+  speed: 20
+  radius: 0.2
+  triggers:
+  - triggerOn: 1
+    arguments:
+      rid: 2001
+    effects:
+    - effectType: 0
+      arguments:
+        rid: 5179498324826783817
+  - triggerOn: 3
+    arguments:
+      rid: 2003
+    effects:
+    - effectType: 2
+      arguments:
+        rid: 2004
+  references:
+    version: 2
+    RefIds:
+    - rid: 2001
+      type: {class: OnCollideTriggerArguments, ns: Assets.Features.Spells, asm: Assembly-CSharp}
+      data:
+        collisionLayers:
+          serializedVersion: 2
+          m_Bits: 55
+    - rid: 2003
+      type: {class: OnExpireTriggerArguments, ns: Assets.Features.Spells, asm: Assembly-CSharp}
+      data:
+        duration: 3
+    - rid: 2004
+      type: {class: SelfDestroyArguments, ns: Assets.Features.Spells, asm: Assembly-CSharp}
+      data: 
+    - rid: 5179498324826783817
+      type: {class: SpawnChildSpellArguments, ns: Assets.Features.Spells, asm: Assembly-CSharp}
+      data:
+        childSpell: {fileID: 11400000, guid: 82a54ad6bd2938549ada9ece64a92cdc, type: 2}
